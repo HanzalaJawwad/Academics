@@ -1,0 +1,21 @@
+1. cart empID
+
+2. pie cart
+department to legend
+attribute to values
+in filters add department as required
+
+3. matrix
+
+dept in row
+gender in column
+empid in values
+
+4. stacked column
+empid in x-axis
+sum of age in y-axis
+
+5. donut
+field legend to gender
+filter
+  all
