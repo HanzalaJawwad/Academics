@@ -1,0 +1,20 @@
+Filled map
+Location - state
+Legend - revenue 
+
+Stacked column 
+X-axis = Age(bins)
+Yaxis = Sum of revenue 
+
+Line chart 
+X _axis= month
+Y_axis = Sum of revenue 
+
+Donut 
+Legend= region 
+Values = sum of revenue 
+
+Stacked bar chart
+X_axis = sum of age
+Y_axis = product category 
+In filters drag 'Gender'
