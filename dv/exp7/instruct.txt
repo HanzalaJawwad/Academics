@@ -1,20 +1,17 @@
-Filled map
-Location - state
-Legend - revenue 
+1.Card
+Fields-coubt of employee 
 
-Stacked column 
-X-axis = Age(bins)
-Yaxis = Sum of revenue 
+2. Pie chart
+Legend department 
+Values- attrition 
 
-Line chart 
-X _axis= month
-Y_axis = Sum of revenue 
+3. Stacked column
+X axis employee I'd
+Y acis age
 
-Donut 
-Legend= region 
-Values = sum of revenue 
-
-Stacked bar chart
-X_axis = sum of age
-Y_axis = product category 
-In filters drag 'Gender'
+4. Matrix
+Rows- department 
+Coulnms-gender
+Values- employeement I'd5. 5.Donut
+Legend-gender
+Values-attrition
