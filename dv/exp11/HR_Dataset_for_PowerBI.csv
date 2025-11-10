@@ -1,0 +1,301 @@
+EmployeeNumber,Age,Gender,Department,EducationField,JobRole,Attrition,JobSatisfaction
+1,58,Male,IT,Human Resources,Finance Analyst,No,2
+2,48,Female,Finance,Technical Degree,Finance Analyst,Yes,2
+3,34,Male,Sales,Medical,Laboratory Technician,No,4
+4,27,Male,IT,Technical Degree,IT Support,Yes,3
+5,40,Male,Sales,Medical,Research Scientist,Yes,4
+6,58,Female,Human Resources,Human Resources,Research Scientist,No,1
+7,38,Male,Sales,Medical,Laboratory Technician,No,1
+8,42,Female,Sales,Marketing,Human Resources,No,1
+9,30,Male,Sales,Marketing,Research Scientist,Yes,3
+10,30,Male,Finance,Marketing,Manager,No,2
+11,43,Male,Sales,Marketing,Sales Executive,No,3
+12,55,Female,IT,Technical Degree,Finance Analyst,No,3
+13,59,Male,Human Resources,Human Resources,Finance Analyst,No,2
+14,43,Male,Human Resources,Medical,Manager,No,4
+15,22,Female,Sales,Medical,IT Support,No,1
+16,41,Male,Finance,Marketing,Research Scientist,No,4
+17,21,Female,Finance,Marketing,Finance Analyst,No,1
+18,43,Female,IT,Life Sciences,Healthcare Representative,No,3
+19,49,Male,Sales,Human Resources,IT Support,No,1
+20,57,Female,Human Resources,Technical Degree,Sales Executive,No,3
+21,21,Male,Finance,Medical,Sales Executive,No,4
+22,40,Female,Sales,Life Sciences,Finance Analyst,No,3
+23,52,Female,Finance,Life Sciences,Laboratory Technician,No,4
+24,31,Male,Finance,Medical,IT Support,No,2
+25,41,Female,Human Resources,Technical Degree,Finance Analyst,No,2
+26,44,Female,Research & Development,Life Sciences,Laboratory Technician,No,2
+27,46,Female,IT,Life Sciences,Finance Analyst,No,3
+28,47,Female,IT,Human Resources,Healthcare Representative,No,2
+29,35,Female,Human Resources,Technical Degree,IT Support,No,1
+30,34,Male,Finance,Life Sciences,Human Resources,No,4
+31,22,Female,Sales,Technical Degree,Sales Executive,No,4
+32,56,Male,Finance,Medical,Finance Analyst,Yes,1
+33,26,Female,Human Resources,Marketing,Healthcare Representative,Yes,3
+34,40,Male,IT,Life Sciences,Laboratory Technician,No,3
+35,28,Male,Finance,Human Resources,Laboratory Technician,No,4
+36,58,Female,IT,Medical,Sales Executive,Yes,2
+37,37,Female,Sales,Technical Degree,Manager,Yes,3
+38,23,Female,IT,Medical,Finance Analyst,Yes,3
+39,44,Male,IT,Life Sciences,IT Support,Yes,1
+40,33,Female,Research & Development,Technical Degree,Research Scientist,Yes,1
+41,28,Male,Research & Development,Marketing,Laboratory Technician,No,2
+42,45,Male,Research & Development,Medical,IT Support,No,3
+43,21,Male,IT,Life Sciences,IT Support,No,3
+44,39,Female,Human Resources,Human Resources,Human Resources,No,1
+45,47,Female,IT,Technical Degree,IT Support,Yes,3
+46,26,Male,Human Resources,Medical,IT Support,No,4
+47,27,Male,Human Resources,Medical,Human Resources,No,1
+48,54,Female,Research & Development,Marketing,Laboratory Technician,No,2
+49,33,Male,Finance,Marketing,IT Support,Yes,1
+50,36,Female,Sales,Human Resources,Manager,No,3
+51,55,Male,Research & Development,Human Resources,Manager,No,2
+52,59,Female,Research & Development,Life Sciences,Healthcare Representative,No,1
+53,23,Male,Finance,Life Sciences,Human Resources,No,4
+54,21,Female,Sales,Human Resources,Healthcare Representative,No,4
+55,25,Male,IT,Human Resources,Human Resources,No,1
+56,23,Female,IT,Technical Degree,Finance Analyst,No,4
+57,48,Female,Research & Development,Marketing,Finance Analyst,Yes,4
+58,37,Male,Sales,Life Sciences,IT Support,Yes,4
+59,45,Male,Research & Development,Marketing,Research Scientist,No,2
+60,53,Female,Human Resources,Marketing,Finance Analyst,Yes,4
+61,29,Male,Research & Development,Human Resources,Research Scientist,No,4
+62,55,Female,Research & Development,Technical Degree,Finance Analyst,No,4
+63,33,Male,IT,Medical,Sales Executive,No,2
+64,50,Female,IT,Technical Degree,Finance Analyst,No,1
+65,34,Female,IT,Technical Degree,Healthcare Representative,No,3
+66,27,Female,Human Resources,Marketing,Laboratory Technician,No,4
+67,33,Female,IT,Technical Degree,IT Support,No,1
+68,42,Female,Sales,Life Sciences,Healthcare Representative,No,4
+69,59,Female,Finance,Marketing,Laboratory Technician,No,2
+70,40,Male,Sales,Life Sciences,Manager,No,1
+71,35,Male,Sales,Medical,Healthcare Representative,Yes,2
+72,37,Male,IT,Marketing,Manager,No,4
+73,43,Female,Finance,Medical,Research Scientist,No,4
+74,45,Female,Finance,Marketing,Research Scientist,No,2
+75,44,Female,Finance,Human Resources,Sales Executive,No,3
+76,48,Female,Human Resources,Technical Degree,Finance Analyst,Yes,2
+77,34,Male,IT,Human Resources,Healthcare Representative,Yes,4
+78,20,Male,Finance,Medical,Manager,No,2
+79,44,Female,Human Resources,Technical Degree,Laboratory Technician,Yes,3
+80,26,Male,Research & Development,Marketing,Research Scientist,No,2
+81,28,Male,Research & Development,Technical Degree,Finance Analyst,No,3
+82,43,Female,Human Resources,Life Sciences,Research Scientist,No,3
+83,20,Male,Human Resources,Technical Degree,Laboratory Technician,No,2
+84,27,Female,IT,Life Sciences,Finance Analyst,No,2
+85,43,Male,IT,Technical Degree,Finance Analyst,No,1
+86,30,Female,Research & Development,Life Sciences,Manager,No,4
+87,36,Female,Finance,Medical,Manager,No,3
+88,27,Female,Research & Development,Human Resources,Healthcare Representative,No,1
+89,54,Female,Finance,Marketing,Healthcare Representative,No,2
+90,54,Male,Finance,Technical Degree,Human Resources,No,4
+91,52,Female,IT,Human Resources,IT Support,No,1
+92,24,Female,Sales,Marketing,Human Resources,No,3
+93,58,Female,Sales,Marketing,Sales Executive,No,1
+94,47,Male,Human Resources,Life Sciences,Research Scientist,No,3
+95,26,Female,IT,Medical,Healthcare Representative,No,2
+96,28,Male,Finance,Medical,Manager,Yes,4
+97,27,Female,Sales,Human Resources,Laboratory Technician,No,4
+98,31,Male,Finance,Medical,Manager,No,4
+99,53,Male,Sales,Technical Degree,Research Scientist,No,2
+100,52,Female,Sales,Medical,Human Resources,No,3
+101,42,Male,Sales,Human Resources,Manager,No,2
+102,43,Female,IT,Medical,IT Support,No,4
+103,56,Female,Research & Development,Technical Degree,Sales Executive,Yes,2
+104,54,Female,Finance,Life Sciences,Research Scientist,No,2
+105,59,Male,IT,Human Resources,Human Resources,Yes,2
+106,41,Male,IT,Life Sciences,IT Support,No,3
+107,46,Female,IT,Life Sciences,Laboratory Technician,No,1
+108,54,Female,IT,Life Sciences,Human Resources,No,1
+109,20,Male,IT,Marketing,Finance Analyst,No,2
+110,54,Female,Human Resources,Marketing,IT Support,No,1
+111,56,Female,Finance,Life Sciences,IT Support,Yes,1
+112,33,Female,IT,Human Resources,Sales Executive,No,2
+113,22,Male,Finance,Technical Degree,Research Scientist,Yes,2
+114,20,Male,Human Resources,Technical Degree,Laboratory Technician,No,4
+115,24,Male,Human Resources,Medical,Sales Executive,No,1
+116,45,Female,Finance,Human Resources,Human Resources,Yes,3
+117,33,Female,Sales,Marketing,Sales Executive,No,2
+118,58,Female,Research & Development,Life Sciences,IT Support,No,4
+119,46,Male,Sales,Medical,Research Scientist,Yes,3
+120,28,Female,Sales,Technical Degree,Healthcare Representative,No,1
+121,34,Female,Sales,Marketing,Sales Executive,No,4
+122,34,Female,IT,Marketing,Finance Analyst,No,2
+123,45,Female,Human Resources,Life Sciences,Sales Executive,No,3
+124,32,Male,Sales,Technical Degree,Human Resources,No,2
+125,51,Male,Human Resources,Human Resources,Human Resources,No,1
+126,58,Female,Finance,Marketing,Laboratory Technician,No,3
+127,51,Male,Research & Development,Life Sciences,Human Resources,No,1
+128,23,Male,Finance,Human Resources,Manager,No,1
+129,49,Female,Finance,Technical Degree,Research Scientist,No,4
+130,56,Female,IT,Marketing,Research Scientist,No,2
+131,42,Male,Research & Development,Human Resources,Healthcare Representative,Yes,3
+132,58,Female,Finance,Human Resources,Healthcare Representative,Yes,1
+133,34,Male,Finance,Human Resources,Research Scientist,No,1
+134,48,Female,Research & Development,Marketing,Finance Analyst,No,3
+135,55,Male,Research & Development,Marketing,Healthcare Representative,No,1
+136,32,Female,Finance,Medical,Laboratory Technician,Yes,4
+137,51,Male,Research & Development,Technical Degree,Human Resources,No,4
+138,26,Male,Finance,Life Sciences,Research Scientist,Yes,4
+139,41,Male,Finance,Human Resources,IT Support,No,4
+140,47,Female,IT,Medical,Healthcare Representative,No,1
+141,21,Male,Sales,Life Sciences,Research Scientist,No,3
+142,25,Male,Finance,Medical,Manager,No,3
+143,47,Female,Human Resources,Marketing,Sales Executive,Yes,3
+144,47,Female,Sales,Human Resources,Human Resources,No,3
+145,39,Male,Sales,Life Sciences,Research Scientist,No,2
+146,49,Male,Sales,Life Sciences,Sales Executive,No,3
+147,30,Female,IT,Life Sciences,Healthcare Representative,Yes,2
+148,47,Female,Finance,Life Sciences,Sales Executive,No,2
+149,44,Female,IT,Life Sciences,Human Resources,No,4
+150,58,Female,Finance,Medical,Research Scientist,No,2
+151,52,Female,IT,Human Resources,Manager,Yes,1
+152,20,Male,IT,Marketing,Finance Analyst,Yes,2
+153,46,Female,Human Resources,Marketing,Healthcare Representative,No,4
+154,32,Male,IT,Marketing,Research Scientist,No,2
+155,22,Male,Research & Development,Marketing,Human Resources,Yes,1
+156,58,Male,Human Resources,Medical,Healthcare Representative,No,1
+157,25,Female,IT,Technical Degree,Laboratory Technician,Yes,1
+158,27,Male,Sales,Human Resources,Sales Executive,No,4
+159,46,Male,Research & Development,Life Sciences,Finance Analyst,Yes,4
+160,28,Female,Research & Development,Technical Degree,Human Resources,No,3
+161,56,Male,Research & Development,Marketing,Laboratory Technician,Yes,4
+162,52,Male,Human Resources,Technical Degree,IT Support,No,1
+163,43,Female,IT,Human Resources,Research Scientist,No,1
+164,34,Male,IT,Life Sciences,Manager,No,4
+165,51,Male,Sales,Life Sciences,Healthcare Representative,Yes,2
+166,51,Male,Sales,Human Resources,Sales Executive,No,4
+167,43,Female,Research & Development,Human Resources,Healthcare Representative,No,4
+168,31,Female,Sales,Marketing,Finance Analyst,Yes,1
+169,58,Female,Human Resources,Life Sciences,Research Scientist,No,3
+170,21,Male,IT,Technical Degree,Healthcare Representative,No,1
+171,22,Male,Research & Development,Medical,Sales Executive,Yes,3
+172,56,Female,Sales,Medical,Research Scientist,No,1
+173,36,Male,Human Resources,Human Resources,Healthcare Representative,No,4
+174,21,Male,Human Resources,Marketing,Manager,No,1
+175,21,Female,Sales,Medical,Human Resources,Yes,1
+176,47,Female,IT,Life Sciences,Research Scientist,Yes,1
+177,42,Male,Sales,Human Resources,Human Resources,No,4
+178,56,Male,Research & Development,Technical Degree,IT Support,No,4
+179,51,Male,Sales,Human Resources,Research Scientist,No,4
+180,52,Female,Human Resources,Technical Degree,Manager,No,4
+181,20,Female,Sales,Human Resources,Human Resources,No,3
+182,38,Female,IT,Human Resources,Laboratory Technician,No,3
+183,21,Female,Finance,Human Resources,Sales Executive,No,2
+184,45,Male,Sales,Technical Degree,Laboratory Technician,Yes,4
+185,51,Female,IT,Technical Degree,Healthcare Representative,No,3
+186,25,Female,IT,Human Resources,Manager,No,1
+187,51,Female,Human Resources,Medical,Laboratory Technician,No,4
+188,23,Female,IT,Marketing,Research Scientist,No,2
+189,30,Female,IT,Marketing,Healthcare Representative,Yes,2
+190,36,Male,IT,Marketing,Healthcare Representative,Yes,2
+191,57,Male,IT,Technical Degree,Laboratory Technician,No,1
+192,43,Female,Research & Development,Technical Degree,IT Support,No,3
+193,24,Male,Research & Development,Medical,Laboratory Technician,Yes,1
+194,53,Female,Human Resources,Marketing,IT Support,No,4
+195,25,Female,Sales,Marketing,Manager,No,2
+196,41,Male,IT,Human Resources,Sales Executive,No,1
+197,30,Male,Sales,Technical Degree,Laboratory Technician,No,1
+198,35,Female,Sales,Marketing,Finance Analyst,No,3
+199,52,Female,Human Resources,Medical,IT Support,No,3
+200,28,Female,IT,Medical,Laboratory Technician,No,2
+201,25,Male,IT,Marketing,Human Resources,Yes,1
+202,35,Female,Finance,Technical Degree,Research Scientist,No,1
+203,48,Female,Sales,Medical,Finance Analyst,No,3
+204,22,Female,Sales,Human Resources,Finance Analyst,Yes,1
+205,39,Male,Research & Development,Medical,IT Support,No,1
+206,55,Female,Finance,Life Sciences,Human Resources,No,1
+207,38,Female,Research & Development,Life Sciences,Human Resources,No,3
+208,45,Male,Research & Development,Technical Degree,Healthcare Representative,No,2
+209,22,Female,Research & Development,Marketing,IT Support,No,4
+210,38,Female,Human Resources,Technical Degree,Sales Executive,No,2
+211,39,Male,Human Resources,Technical Degree,Research Scientist,No,4
+212,51,Female,Research & Development,Technical Degree,Manager,No,1
+213,26,Male,Finance,Technical Degree,Finance Analyst,No,2
+214,52,Male,Sales,Human Resources,Manager,No,4
+215,59,Female,Finance,Human Resources,Laboratory Technician,No,3
+216,58,Female,IT,Medical,Laboratory Technician,No,3
+217,37,Female,Human Resources,Life Sciences,Manager,No,2
+218,59,Female,Sales,Technical Degree,Laboratory Technician,No,2
+219,20,Male,Sales,Medical,Sales Executive,No,1
+220,30,Female,IT,Life Sciences,Human Resources,No,2
+221,47,Male,IT,Marketing,Laboratory Technician,Yes,1
+222,44,Female,Research & Development,Human Resources,Healthcare Representative,No,1
+223,42,Female,Human Resources,Life Sciences,Laboratory Technician,Yes,3
+224,50,Female,Human Resources,Marketing,Research Scientist,Yes,3
+225,49,Male,Finance,Life Sciences,Sales Executive,No,4
+226,54,Female,Research & Development,Human Resources,Research Scientist,No,3
+227,26,Female,Research & Development,Human Resources,Research Scientist,Yes,3
+228,35,Female,Research & Development,Medical,Healthcare Representative,No,2
+229,45,Female,Research & Development,Technical Degree,Sales Executive,No,3
+230,21,Male,Human Resources,Life Sciences,Sales Executive,No,4
+231,20,Female,Human Resources,Life Sciences,IT Support,No,2
+232,31,Male,Research & Development,Marketing,Sales Executive,Yes,4
+233,24,Male,Finance,Human Resources,Sales Executive,No,3
+234,56,Male,Sales,Life Sciences,Sales Executive,Yes,4
+235,51,Male,Sales,Human Resources,Healthcare Representative,No,2
+236,28,Male,Finance,Life Sciences,Laboratory Technician,No,1
+237,54,Male,Research & Development,Medical,IT Support,No,4
+238,38,Female,Human Resources,Technical Degree,Research Scientist,No,4
+239,35,Male,Sales,Life Sciences,Sales Executive,No,2
+240,22,Male,IT,Human Resources,Finance Analyst,Yes,2
+241,39,Male,IT,Medical,Laboratory Technician,No,4
+242,43,Female,Finance,Life Sciences,Laboratory Technician,No,3
+243,52,Female,Research & Development,Marketing,Research Scientist,No,4
+244,43,Male,Sales,Technical Degree,Healthcare Representative,No,2
+245,30,Female,Research & Development,Life Sciences,Manager,No,1
+246,27,Male,Sales,Medical,Manager,Yes,1
+247,55,Male,Finance,Marketing,Laboratory Technician,No,3
+248,57,Female,Finance,Medical,Human Resources,No,4
+249,59,Male,IT,Medical,Human Resources,No,1
+250,39,Female,Research & Development,Marketing,Research Scientist,No,4
+251,54,Female,IT,Medical,Manager,No,2
+252,44,Male,Research & Development,Marketing,Laboratory Technician,No,1
+253,54,Male,IT,Life Sciences,Healthcare Representative,No,3
+254,44,Female,Human Resources,Marketing,Manager,No,2
+255,48,Male,Human Resources,Marketing,Laboratory Technician,No,3
+256,37,Male,Human Resources,Technical Degree,Laboratory Technician,No,2
+257,37,Male,Human Resources,Marketing,Sales Executive,No,1
+258,21,Female,Sales,Marketing,Healthcare Representative,Yes,3
+259,54,Female,Human Resources,Life Sciences,Sales Executive,Yes,3
+260,35,Male,Finance,Technical Degree,Research Scientist,No,2
+261,55,Female,Finance,Human Resources,Sales Executive,Yes,3
+262,52,Female,Sales,Life Sciences,Finance Analyst,No,2
+263,23,Female,Human Resources,Life Sciences,Sales Executive,No,2
+264,52,Female,Human Resources,Human Resources,Finance Analyst,No,2
+265,33,Female,Human Resources,Marketing,Manager,No,2
+266,40,Male,IT,Medical,Human Resources,No,1
+267,39,Male,Research & Development,Technical Degree,IT Support,Yes,2
+268,27,Male,IT,Medical,IT Support,No,4
+269,26,Female,Research & Development,Human Resources,Laboratory Technician,No,3
+270,22,Female,Human Resources,Life Sciences,IT Support,Yes,4
+271,36,Male,Human Resources,Life Sciences,Finance Analyst,No,1
+272,52,Female,IT,Technical Degree,Healthcare Representative,No,4
+273,31,Male,IT,Life Sciences,Sales Executive,No,3
+274,41,Male,Research & Development,Life Sciences,Finance Analyst,No,4
+275,41,Male,Finance,Technical Degree,Healthcare Representative,No,1
+276,49,Female,Research & Development,Technical Degree,Human Resources,No,2
+277,57,Female,IT,Human Resources,IT Support,No,4
+278,57,Male,IT,Life Sciences,Human Resources,Yes,1
+279,27,Male,Sales,Life Sciences,IT Support,No,1
+280,46,Male,IT,Human Resources,Sales Executive,No,3
+281,46,Male,Sales,Marketing,Research Scientist,Yes,3
+282,53,Female,Finance,Marketing,Sales Executive,No,4
+283,40,Female,Research & Development,Marketing,Manager,No,2
+284,49,Male,Research & Development,Human Resources,Finance Analyst,No,1
+285,52,Male,Sales,Life Sciences,Laboratory Technician,No,4
+286,47,Female,Research & Development,Human Resources,Research Scientist,No,1
+287,52,Female,IT,Human Resources,Sales Executive,No,1
+288,24,Male,Human Resources,Marketing,Healthcare Representative,No,2
+289,38,Male,Sales,Medical,Research Scientist,No,2
+290,23,Male,Research & Development,Life Sciences,Finance Analyst,No,4
+291,54,Female,Sales,Marketing,IT Support,No,2
+292,36,Female,Sales,Medical,Research Scientist,No,2
+293,47,Female,Human Resources,Medical,IT Support,No,4
+294,49,Male,IT,Technical Degree,Finance Analyst,No,2
+295,48,Male,Sales,Life Sciences,Sales Executive,No,3
+296,25,Female,Research & Development,Medical,Finance Analyst,No,1
+297,54,Female,Finance,Marketing,Research Scientist,No,1
+298,56,Male,Sales,Technical Degree,Healthcare Representative,Yes,1
+299,43,Female,Sales,Life Sciences,Human Resources,Yes,1
+300,48,Female,Human Resources,Human Resources,Research Scientist,No,4
