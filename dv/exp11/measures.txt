@@ -1,0 +1,6 @@
+Active Employees = [Employee Count] - [Attrition Count]
+Attrition Count = COUNTROWS(FILTER(HR_,HR_[Attrition] = "Yes"))
+Attrition Rate = DIVIDE([Attrition Count],[Employee Count], 0) * 100
+Average Age = AVERAGE(HR_[Age])
+Employee Count = COUNT(HR_[EmployeeNumber])
+
