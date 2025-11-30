@@ -1,0 +1,435 @@
+import java.io.*;
+
+class ex6 {
+    public static void main(String args[]) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int[] data;
+        int[] div;
+        int[] divisor;
+        int[] rem;
+        int[] crc;
+        int data_bits, divisor_bits, tot_length;
+
+        System.out.println("Enter number of data bits: ");
+        data_bits = Integer.parseInt(br.readLine());
+        data = new int[data_bits];
+
+
+        System.out.println("Enter data bits: ");
+        String inputLine = br.readLine();
+        String[] inputNumbers = inputLine.split(" ");
+
+        for (int i = 0; i < data_bits; i++) {
+            data[i] = Integer.parseInt(inputNumbers[i]);
+        }
+
+        divisor_bits = 17;
+        divisor = new int[] {1,1,0,0,0,0,1,0,1,0,0,0,0,1,1,0,0};
+        tot_length = data_bits + divisor_bits - 1;
+
+        div = new int[tot_length];
+        rem = new int[tot_length];
+        crc = new int[tot_length];
+
+            
+        for (int i = 0; i < data.length; i++) {
+            div[i] = data[i];
+        }
+        for (int i = data_bits; i < tot_length; i++) {
+            div[i] = 0;
+        }
+
+        System.out.print("Dividend (after appending 0's) are: ");
+        for (int i = 0; i < div.length; i++) {
+            System.out.print(div[i]);
+        }
+        System.out.println();
+        for (int j = 0; j < div.length; j++) {
+            rem[j] = div[j];
+        }
+
+       
+        rem = divide(divisor, rem);
+
+
+        for (int i = 0; i < data_bits; i++) {
+            crc[i] = data[i];
+        }
+        for (int i = 0; i < divisor_bits - 1; i++) {
+            crc[data_bits + i] = rem[data_bits + i];
+        }
+
+        System.out.println();
+        System.out.println("Sender");
+
+        System.out.println("CRC code: ");
+        for (int i = 0; i < tot_length; i++) {
+            System.out.print(crc[i]);
+        }
+
+
+        System.out.println();
+        System.out.println("Reciever");
+
+        System.out.println("Enter CRC code of " + tot_length + " bits: ");
+        String crcInput = br.readLine();
+        String[] crcNumbers = crcInput.split(" ");
+        for (int i = 0; i < tot_length; i++) {
+            crc[i] = Integer.parseInt(crcNumbers[i]);
+        }
+
+
+        for (int j = 0; j < tot_length; j++) {
+            rem[j] = crc[j];
+        }
+
+
+        rem = divide(divisor, rem);
+
+        boolean errorDetected = false;
+        for (int i = data_bits; i < tot_length; i++) {
+            if (rem[i] != 0) {
+                errorDetected = true;
+                break;
+            }
+        }
+
+        if (errorDetected) {
+            System.out.println("Error");
+        } else {
+            System.out.println("No Error");
+        }
+
+        System.out.println("THANK YOU. ....)");
+    }
+
+    static int[] divide(int divisor[], int rem[]) {
+        int genLen = divisor.length;
+        int dataLen = rem.length - genLen + 1;
+        for (int i = 0; i < dataLen; i++) {
+            if (rem[i] == 1) {
+                for (int j = 0; j < genLen; j++) {
+                    rem[i + j] ^= divisor[j];
+                }
+            }
+        }
+        return rem;
+    }
+}
+
+
+
+
+
+//EXP 11
+Server: 
+import java.io.*; 
+import java.net.*; 
+class FTPServer 
+{ 
+public static void main(String[] args) throws Exception 
+{ 
+ServerSocket Sock=new ServerSocket(2000); 
+System.out.println("waiting for a client request"); 
+Socket s=Sock.accept(); 
+DataInputStream cin=new DataInputStream(s.getInputStream()); 
+DataOutputStream cout=new DataOutputStream(s.getOutputStream()); 
+String filename=cin.readUTF(); 
+File f=new File(filename); 
+if (!f.exists())  
+return; 
+else{ 
+System.out.println("Sending File "+filename); 
+FileInputStream fin=new FileInputStream(f); 
+int ch; 
+do 
+{ 
+ch=fin.read(); 
+cout.writeUTF(Integer.toString(ch)); 
+}while(ch!=-1); 
+fin.close(); 
+System.out.println("File Sent"); 
+} 
+} } 
+
+
+Client: 
+import java.io.*; 
+import java.net.*; 
+class FTPClient 
+{ 
+public static void main(String[] args) throws Exception 
+{ 
+DataInputStream in=new DataInputStream(System.in); 
+Socket s=new Socket("localhost",2000); 
+DataInputStream cin=new DataInputStream(s.getInputStream()); 
+DataOutputStream cout=new DataOutputStream(s.getOutputStream()); 
+System.out.println("Enter the file name"); 
+String filename=in.readLine(); 
+cout.writeUTF(filename); 
+System.out.println("Receiving File "+filename); 
+File f=new File(filename); 
+FileOutputStream fout=new FileOutputStream(f); 
+int ch; 
+do 
+{ 
+ch=Integer.parseInt(cin.readUTF()); 
+if(ch!=-1)  
+fout.write(ch); 
+}while(ch!=-1); 
+System.out.println("Received File..."); fout.close(); }}
+
+//EXP12
+Server: 
+import java.io.*; 
+import java.net.*; 
+class UDPServer 
+{ 
+public static DatagramSocket serversocket; 
+public static DatagramPacket dp; 
+public static BufferedReader dis; 
+public static InetAddress ia; 
+public static byte buf[] = new byte[1024]; 
+public static int cport = 789,sport=790; 
+public static void main(String[] a) throws IOException 
+{ 
+serversocket = new DatagramSocket(sport); 
+dp = new DatagramPacket(buf,buf.length); 
+dis = new BufferedReader 
+(new InputStreamReader(System.in)); 
+ia = InetAddress.getLocalHost(); 
+System.out.println("Server is Running..."); 
+while(true) 
+{ 
+serversocket.receive(dp); 
+String str = new String(dp.getData(), 0, 
+dp.getLength()); 
+if(str.equals("STOP")) 
+{ 
+System.out.println("Terminated..."); 
+break; 
+} 
+System.out.println("Client: " + str); 
+String str1 = new String(dis.readLine()); 
+buf = str1.getBytes(); 
+serversocket.send(new 
+DatagramPacket(buf,str1.length(), ia, cport)); 
+} 
+} 
+} 
+Client: 
+import java.io.*; 
+import java.net.*; 
+class UDPClient 
+{ 
+public static DatagramSocket clientsocket; 
+public static DatagramPacket dp; 
+public static BufferedReader dis; 
+public static InetAddress ia; 
+public static byte buf[] = new byte[1024]; 
+public static int cport = 789, sport = 790; 
+public static void main(String[] a) throws IOException 
+{ 
+clientsocket = new DatagramSocket(cport); 
+dp = new DatagramPacket(buf, buf.length); 
+dis = new BufferedReader(new 
+InputStreamReader(System.in)); 
+ia = InetAddress.getLocalHost(); 
+System.out.println("Client is Running... Type 'STOP' to Quit"); 
+while(true) 
+{ 
+String str = new String(dis.readLine()); 
+buf = str.getBytes(); 
+if(str.equals("STOP")) 
+{ 
+System.out.println("Terminated..."); 
+clientsocket.send(new 
+DatagramPacket(buf,str.length(), ia, 
+sport)); 
+break; 
+} 
+clientsocket.send(new DatagramPacket(buf, 
+str.length(), ia, sport)); 
+clientsocket.receive(dp); 
+String str2 = new String(dp.getData(), 0, 
+dp.getLength()); 
+System.out.println("Server: " + str2); 
+} 
+} 
+}
+
+
+//EXP13
+import java.io.DataInputStream; 
+import java.io.IOException; 
+import java.math.BigInteger; 
+import java.util.Random; 
+  
+public class RSA 
+{ 
+    private BigInteger p; 
+    private BigInteger q; 
+    private BigInteger N; 
+    private BigInteger phi; 
+    private BigInteger e; 
+    private BigInteger d; 
+    private int        bitlength = 1024; 
+    private Random     r; 
+  
+    public RSA() 
+    { 
+        r = new Random(); 
+        p = BigInteger.probablePrime(bitlength, r); 
+        q = BigInteger.probablePrime(bitlength, r); 
+        N = p.multiply(q); 
+        phi = p.subtract(BigInteger.ONE).multiply(q.subtract(BigInteger.ONE)); 
+        e = BigInteger.probablePrime(bitlength / 2, r); 
+        while (phi.gcd(e).compareTo(BigInteger.ONE) > 0 && e.compareTo(phi) < 0) 
+        { 
+            e.add(BigInteger.ONE); 
+        } 
+        d = e.modInverse(phi); 
+    } 
+  
+    public RSA(BigInteger e, BigInteger d, BigInteger N) 
+    { 
+        this.e = e; 
+        this.d = d; 
+        this.N = N; 
+    } 
+  
+    @SuppressWarnings("deprecation") 
+    public static void main(String[] args) throws IOException 
+    { 
+        RSA rsa = new RSA(); 
+        DataInputStream in = new DataInputStream(System.in); 
+        String teststring; 
+        System.out.println("Enter the plain text:"); 
+        teststring = in.readLine(); 
+        System.out.println("Encrypting String: " + teststring); 
+        System.out.println("String in Bytes: " 
+                + bytesToString(teststring.getBytes())); 
+        // encrypt 
+        byte[] encrypted = rsa.encrypt(teststring.getBytes()); 
+        // decrypt 
+        byte[] decrypted = rsa.decrypt(encrypted); 
+        System.out.println("Decrypting Bytes: " + bytesToString(decrypted)); 
+        System.out.println("Decrypted String: " + new String(decrypted)); 
+    } 
+  
+    private static String bytesToString(byte[] encrypted) 
+    { 
+        String test = ""; 
+        for (byte b : encrypted) 
+        { 
+            test += Byte.toString(b); 
+        } 
+        return test; 
+    } 
+  
+    // Encrypt message 
+    public byte[] encrypt(byte[] message) 
+    { 
+        return (new BigInteger(message)).modPow(e, N).toByteArray(); 
+    } 
+  
+    // Decrypt message 
+    public byte[] decrypt(byte[] message) 
+    { 
+        return (new BigInteger(message)).modPow(d, N).toByteArray(); 
+    } 
+}
+
+
+//EXP 14
+import java.io.*; 
+import java.util.*; 
+ 
+class Leakybucket { 
+    public static void main(String[] args) 
+    { 
+        int no_of_queries, storage, output_pkt_size; 
+        int input_pkt_size, bucket_size, size_left; 
+ 
+        // initial packets in the bucket 
+        storage = 0; 
+ 
+        // total no. of times bucket content is checked 
+        no_of_queries = 4; 
+ 
+        // total no. of packets that can 
+        // be accommodated in the bucket 
+        bucket_size = 10; 
+ 
+        // no. of packets that enters the bucket at a time 
+        input_pkt_size = 4; 
+ 
+        // no. of packets that exits the bucket at a time 
+        output_pkt_size = 1; 
+        for (int i = 0; i < no_of_queries; i++) { 
+            size_left = bucket_size - storage; // space left 
+ 
+            if (input_pkt_size <= (size_left)) { 
+                storage += input_pkt_size; 
+            } 
+            else { 
+                System.out.println("Packet loss = " 
+                                   + input_pkt_size); 
+            } 
+            System.out.println("Buffer size= " + storage 
+                               + " out of bucket size= " 
+                               + bucket_size); 
+            storage -= output_pkt_size; 
+        } 
+    } 
+} 
+import java.util.Scanner; 
+public class Leaky  
+{ 
+public static void main(String[] args)  
+{ 
+Scanner sc = new Scanner(System.in); 
+int bcktsize, iter, rate, line, total = 0; 
+int[] pkt = new int[25]; 
+System.out.print("Enter the bucket size and output rate(both in MB):"); 
+bcktsize = sc.nextInt(); 
+rate = sc.nextInt(); 
+System.out.println("Enter the number of input lines"); 
+line = sc.nextInt(); 
+System.out.println("Enter input packet rate of " + line + " lines"); 
+for(int i = 0; i < line; i++)    
+pkt[i] = sc.nextInt(); 
+System.out.println("Enter the number of iterations"); 
+iter = sc.nextInt(); 
+for(int i = 0; i < iter; i++)  
+{ 
+System.out.println("\nIteration " + (i + 1)); 
+for(int j = 0; j < line; j++)  
+{ 
+total += pkt[j]; 
+   if(total <= bcktsize)      
+    System.out.println("\nInput from line "+(j+1)+" withrate "+pkt[j]+ 
+         " is added to the bucket\nCurrent bucket size(Mb) is " + total);     
+   else  
+   { 
+    total -= pkt[j]; 
+    System.out.println("\nInput from line " + (j + 1) +" withrate " + pkt[j] +  
+        " is thrown out of bucket\nCurrent bucket size(Mb)is " + total); 
+   } 
+  } 
+  if(total <= rate)  
+  { 
+   System.out.print("packet sent to outputline at rate " + total); 
+   total = 0; 
+   System.out.print("current bucket size is " + total); 
+  } 
+  else 
+  { 
+   total -= rate; 
+   System.out.println("\npacket sent to output line at rate " + rate + 
+              " \n Current bucket size(Mb)is " + total); 
+  } 
+ } 
+ } 
+ 
+}
