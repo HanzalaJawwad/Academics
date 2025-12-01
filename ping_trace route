@@ -1,0 +1,105 @@
+Ex. 3. Implement transmission of ping messages/trace route over a network topology consisting of 6 nodes and find the number of packets dropped due to congestion.
+
+set ns [new Simulator]
+
+set tf [open ex3.tr w]
+$ns trace-all $tf
+
+set nf [open ex3.nam w]
+$ns namtrace-all $nf
+
+set n0 [$ns node]
+set n1 [$ns node]
+set n2 [$ns node]
+set n3 [$ns node]
+set n4 [$ns node]
+set n5 [$ns node]
+
+$ns duplex-link $n0 $n1 1000kb 10ms DropTail
+$ns duplex-link $n0 $n2 1Mb 10ms DropTail
+$ns duplex-link $n0 $n3 1Mb 10ms DropTail
+$ns duplex-link $n0 $n4 1Mb 10ms DropTail
+$ns duplex-link $n0 $n5 1Mb 10ms DropTail
+
+
+$ns queue-limit $n0 $n1 10
+$ns queue-limit $n0 $n2 5
+$ns queue-limit $n0 $n3 10
+$ns queue-limit $n0 $n4 20
+$ns queue-limit $n0 $n5 7
+
+set ping0 [new Agent/Ping]
+$ns attach-agent $n0 $ping0
+set ping1 [new Agent/Ping]
+$ns attach-agent $n1 $ping1
+set ping2 [new Agent/Ping]
+$ns attach-agent $n2 $ping2
+set ping3 [new Agent/Ping]
+$ns attach-agent $n3 $ping3
+set ping4 [new Agent/Ping]
+$ns attach-agent $n4 $ping4
+set ping5 [new Agent/Ping]
+$ns attach-agent $n5 $ping5
+
+
+$ping0 set packetSize_ 10000
+$ping0 set interval_ 0.01
+$ping1 set packetSize_ 10000
+$ping1 set interval_ 0.01
+$ping2 set packetSize_ 10000
+$ping2 set interval_ 0.01
+$ping3 set packetSize_ 10000
+$ping3 set interval_ 0.01
+$ping4 set packetSize_ 10000
+$ping4 set interval_ 0.01
+$ping5 set packetSize_ 10000
+$ping5 set interval_ 0.01
+
+
+$ns connect $ping1 $ping0
+$ns connect $ping2 $ping0
+$ns connect $ping3 $ping0
+$ns connect $ping4 $ping0
+$ns connect $ping5 $ping0
+
+Agent/Ping instproc recv {from rtt} {
+$self instvar node_
+puts " Node [$node_ id] received Ping reply from $from and Round trip time : $rtt"
+}
+proc finish {} {
+global ns nf tf
+puts "Packets dropped"
+exec grep "d" ex3.tr | wc -l &
+exec nam ex3.nam &
+$ns flush-trace
+close $tf
+exit 0
+}
+
+$ns at 0.1 "$ping1 send"
+$ns at 0.2 "$ping1 send"
+$ns at 0.3 "$ping1 send"
+$ns at 0.4 "$ping1 send"
+$ns at 0.1 "$ping2 send"
+$ns at 0.2 "$ping2 send"
+$ns at 0.3 "$ping2 send"
+$ns at 0.4 "$ping2 send"
+$ns at 0.1 "$ping3 send"
+$ns at 0.2 "$ping3 send"
+$ns at 0.3 "$ping3 send"
+$ns at 0.4 "$ping3 send"
+$ns at 0.1 "$ping4 send"
+$ns at 0.2 "$ping4 send"
+$ns at 0.3 "$ping4 send"
+$ns at 0.4 "$ping4 send"
+$ns at 0.1 "$ping5 send"
+$ns at 0.2 "$ping5 send"
+$ns at 0.3 "$ping5 send"
+$ns at 0.4 "$ping5 send"
+
+
+
+$ns at 0.5 "finish"
+
+$ns run
+
