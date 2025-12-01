@@ -1,0 +1,66 @@
+import java.util.*;
+
+class CombinedRouting {
+    public static void main(String[] args) {
+        int INF = 999;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter vertices and edges: ");
+        int V = sc.nextInt(), E = sc.nextInt();
+
+        int[][] cost = new int[V][V];
+        int[] dist = new int[V];
+        int[] parent = new int[V];
+        Arrays.fill(dist, INF);
+        Arrays.fill(parent, -1);
+
+        for(int i=0;i<V;i++)
+            Arrays.fill(cost[i], INF);
+
+        System.out.println("Enter edges: u v w");
+        int[][] edges = new int[E][3];
+        for(int i=0;i<E;i++) {
+            edges[i][0] = sc.nextInt();
+            edges[i][1] = sc.nextInt();
+            edges[i][2] = sc.nextInt();
+            cost[edges[i][0]][edges[i][1]] = edges[i][2];
+            cost[edges[i][1]][edges[i][0]] = edges[i][2];
+        }
+
+        // ---------- Bellman-Ford ----------
+        dist[0] = 0;
+        for(int i=1;i<V;i++)
+            for(int[] e : edges)
+                if(dist[e[0]] + e[2] < dist[e[1]]) {
+                    dist[e[1]] = dist[e[0]] + e[2];
+                    parent[e[1]] = e[0];
+                }
+
+        System.out.println("\nBellman-Ford shortest distances:");
+        for(int i=0;i<V;i++) {
+            System.out.print("0→" + i + " = " + dist[i] + " | Path: ");
+            print(parent, i);
+            System.out.println();
+        }
+
+        // ---------- Path Vector Routing ----------
+        int[][] dv = new int[V][V];
+        for(int i=0;i<V;i++) dv[i] = cost[i].clone();
+
+        for(int k=0;k<V;k++)
+            for(int i=0;i<V;i++)
+                for(int j=0;j<V;j++)
+                    if(dv[i][k] + dv[k][j] < dv[i][j])
+                        dv[i][j] = dv[i][k] + dv[k][j];
+
+        System.out.println("\nPath Vector / Distance Vector Table:");
+        for(int i=0;i<V;i++)
+            System.out.println(Arrays.toString(dv[i]));
+    }
+
+    static void print(int[] p, int v) {
+        if(v==-1) return;
+        print(p, p[v]);
+        System.out.print(v + " ");
+    }
+}
