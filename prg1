@@ -1,0 +1,111 @@
+                                                         GENERATIVE AI
+
+Program 1: Explore pre-trained word vectors. Explore word relationships using vector arithmetic,. Perform arithmetic operations and analyze results.
+
+import nltk
+from nltk.corpus import stopwords
+from nltk import FreqDist
+
+# download stopwords
+nltk.download('stopwords')
+
+# sample corpus
+corpus = [
+    'king is a strong man',
+    'queen is a wise woman',
+    'boy is a young man',
+    'girl is a young woman',
+    'prince is a young king',
+    'prince will be strong',
+    'prince is young',
+    'man is strong',
+    'woman is pretty',
+    'prince is a boy',
+    'prince will be king',
+    'princess is a girl',
+    'princess will be queen'
+]
+
+# tokenize sentences
+sl = [s.split() for s in corpus]
+print("\nTokenized statements:")
+print(sl)
+
+# remove stopwords
+sw = set(stopwords.words('english'))
+doc = [[w for w in s if w.lower() not in sw] for s in sl]
+print("\nDocuments after removing stopwords:")
+print(doc)
+
+# create frequency distribution
+v = FreqDist([w for d in doc for w in d])
+print("\nVocabulary (word frequencies):")
+print(dict(v))
+
+# get frequencies of specific words
+vk = v['king']
+vm = v['man']
+vw = v['woman']
+vq = v['queen']
+
+print(f"\nFrequency of 'king': {vk}")
+print(f"Frequency of 'man': {vm}")
+print(f"Frequency of 'woman': {vw}")
+print(f"Frequency of 'queen': {vq}")
+
+# vector arithmetic
+sv = vk + vm
+dv = vk - vm
+
+print(f"\nSum Vector (king + man): {sv}")
+print(f"Difference Vector (king - man): {dv}")
+
+# cosine similarity (simplified)
+simi = (vk * vq) / ((vk ** 0.5) * (vq ** 0.5))
+print(f"\nCosine Similarity between 'king' and 'queen': {simi}")
+
+# most frequent word
+ms = sorted(v.items(), key=lambda item: item[1], reverse=True)
+print("\nMost similar word to 'king' (by frequency):")
+print(ms)
+
+# analogy: king - man + woman
+ana_vec = vk - vm + vw
+
+def dis(item):
+    return abs(item[1] - ana_vec)
+
+mse = sorted(v.items(), key=dis)[1]
+print(f"\nAnalogy Result (king - man + woman = ?): {mse}")
+
+
+Output:
+
+
+Tokenized statements:
+[['king', 'is', 'a', 'strong', 'man'], ['queen', 'is', 'a', 'wise', 'woman'], ['boy', 'is', 'a', 'young', 'man'], ['girl', 'is', 'a', 'young', 'woman'], ['prince', 'is', 'a', 'young', 'king'], ['prince', 'will', 'be', 'strong'], ['prince', 'is', 'young'], ['man', 'is', 'strong'], ['woman', 'is', 'pretty'], ['prince', 'is', 'a', 'boy'], ['prince', 'will', 'be', 'king'], ['princess', 'is', 'a', 'girl'], ['princess', 'will', 'be', 'queen']]
+
+Documents after removing stopwords:
+[['king', 'strong', 'man'], ['queen', 'wise', 'woman'], ['boy', 'young', 'man'], ['girl', 'young', 'woman'], ['prince', 'young', 'king'], ['prince', 'strong'], ['prince', 'young'], ['man', 'strong'], ['woman', 'pretty'], ['prince', 'boy'], ['prince', 'king'], ['princess', 'girl'], ['princess', 'queen']]
+
+Vocabulary (word frequencies):
+{'king': 3, 'strong': 3, 'man': 3, 'queen': 2, 'wise': 1, 'woman': 3, 'boy': 2, 'young': 4, 'girl': 2, 'prince': 5, 'pretty': 1, 'princess': 2}
+
+Frequency of 'king': 3
+Frequency of 'man': 3
+Frequency of 'woman': 3
+Frequency of 'queen': 2
+
+Sum Vector (king + man): 6
+Difference Vector (king - man): 0
+
+Cosine Similarity between 'king' and 'queen': 2.449489742783178
+
+Most similar word to 'king' (by frequency):
+[('prince', 5), ('young', 4), ('king', 3), ('strong', 3), ('man', 3), ('woman', 3), ('queen', 2), ('boy', 2), ('girl', 2), ('princess', 2), ('wise', 1), ('pretty', 1)]
+
+Analogy Result (king - man + woman = ?): ('strong', 3)
+[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\Staff\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+
