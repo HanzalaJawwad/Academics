@@ -1,0 +1,19 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+file_path = r'housing.csv'
+df = pd.read_csv(file_path)
+
+print(df.head())
+
+corr_matrix = df.corr()
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(corr_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
+plt.title("Correlation Matrix of California Housing Dataset")
+plt.show()
+
+sns.pairplot(df, height=2.5)
+plt.suptitle("Pairwise Relationships of Features", y=1.02)
+plt.show()
