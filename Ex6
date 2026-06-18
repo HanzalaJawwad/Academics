@@ -1,0 +1,44 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+def kernel(point, xmat, k):
+    m = np.shape(xmat)[0]
+    weights = np.mat(np.eye(m))
+
+    for j in range(m):
+        diff = point - xmat[j]
+        weights[j, j] = np.exp(diff * diff.T / (-2.0 * k ** 2))
+
+    return weights
+
+def local_weight(point, xmat, ymat, k):
+    weights = kernel(point, xmat, k)
+    W = np.linalg.inv(xmat.T * (weights * xmat)) * (xmat.T * (weights * ymat))
+    return W
+
+def local_weight_regression(xmat, ymat, k):
+    m = np.shape(xmat)[0]
+    ypred = np.zeros(m)
+
+    for i in range(m):
+        ypred[i] = xmat[i] * local_weight(xmat[i], xmat, ymat, k)
+
+    return ypred
+
+x = np.linspace(-3, 3, 100)
+y = np.sin(x) + np.random.normal(0, 0.1, 100)
+
+xmat = np.mat(np.column_stack((np.ones(len(x)), x)))
+ymat = np.mat(y).T
+
+k = 0.5
+
+ypred = local_weight_regression(xmat, ymat, k)
+
+sortindex = xmat[:, 1].argsort(0)
+
+xsort = xmat[sortindex][:, 0, :]
+
+plt.scatter(x, y, color='blue')
+plt.plot(xsort[:, 1], ypred[sortindex], color='red')
+plt.show()
