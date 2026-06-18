@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from collections import Counter
+
+data = np.random.rand(100)
+
+labels = ["Class1" if x <= 0.5 else "Class2" for x in data[:50]]
+
+def euclidean_distance(x1, x2):
+    return abs(x1 - x2)
+
+def knn_classifier(train_data, train_labels, test_point, k):
+    distances = [
+        (euclidean_distance(test_point, train_data[i]), train_labels[i])
+        for i in range(len(train_data))
+    ]
+
+    distances.sort(key=lambda x: x[0])
+
+    k_nearest_neighbors = distances[:k]
+
+    k_nearest_labels = [label for _, label in k_nearest_neighbors]
+
+    return Counter(k_nearest_labels).most_common(1)[0][0]
+
+train_data = data[:50]
+test_data = data[50:]
+
+k_values = [1, 2, 3, 4, 5, 20, 30]
+
+for k in k_values:
+    predicted_labels = [
+        knn_classifier(train_data, labels, point, k)
+        for point in test_data
+    ]
+
+    print(f"\nResults for k={k}")
+    for point, label in zip(test_data, predicted_labels):
+        print(f"x = {point:.3f}, Predicted Class = {label}")
