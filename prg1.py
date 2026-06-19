@@ -4,12 +4,12 @@ Program 1: Explore pre-trained word vectors. Explore word relationships using ve
 
 import nltk
 from nltk.corpus import stopwords
-from nltk import FreqDist
+from nltk import FreqDis
 
-# download stopwords
+
 nltk.download('stopwords')
 
-# sample corpus
+
 corpus = [
     'king is a strong man',
     'queen is a wise woman',
@@ -26,7 +26,7 @@ corpus = [
     'princess will be queen'
 ]
 
-# tokenize sentences
+
 sl = [s.split() for s in corpus]
 print("\nTokenized statements:")
 print(sl)
